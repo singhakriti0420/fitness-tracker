@@ -6,7 +6,7 @@ import User from "../models/User.js";
 export const getDashboard = async (req, res) => {
   const activities = await Activity.find({ user: req.user._id }).sort({ date: -1 }).limit(14);
   const workouts = await Workout.find({ user: req.user._id }).sort({ date: -1 }).limit(14);
-  const matchStats = await MatchStats.findOne({ user: req.user._id }).sort({ date: -1 });
+  const matchStats = await MatchStats.findOne({ user: req.user._id });
   const user = await User.findById(req.user._id);
 
   const totalCalories = activities.reduce((sum, item) => sum + item.calories, 0);

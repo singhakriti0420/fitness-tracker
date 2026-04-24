@@ -23,6 +23,7 @@ export default function Dashboard() {
     load();
   }, []);
 
+  if (error) return <div className="error-message">{error}</div>;
   if (!data) return <Loader />;
 
   return (
