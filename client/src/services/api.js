@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "https://fitness-tracker-api-8aqu.onrender.com/api",
+  baseURL: import.meta.env.VITE_API_URL || "https://fitness-tracker-server-5xzx.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
   },
