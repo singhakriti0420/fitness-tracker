@@ -1,7 +1,12 @@
 import axios from "axios";
 
+const rawApiUrl = import.meta.env.VITE_API_URL || "https://fitness-tracker-server-s3dh.onrender.com/api";
+const normalizedApiUrl = rawApiUrl.endsWith("/api")
+  ? rawApiUrl
+  : rawApiUrl.replace(/\/$/, "") + "/api";
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "https://fitness-tracker-server-5xzx.onrender.com/api",
+  baseURL: normalizedApiUrl,
   headers: {
     "Content-Type": "application/json",
   },
